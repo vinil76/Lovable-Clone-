@@ -35,11 +35,31 @@ src/
 └── main/
     ├── java/com/vinilcode/projects/lovable_clone/
     │   ├── LovableCloneApplication.java
-    │   ├── entities/
-    │   └── enums/
+    │   ├── entity/
+    │   ├── enums/
+    │   ├── dto/
+    │   │   ├── auth/
+    │   │   ├── member/
+    │   │   ├── project/
+    │   │   └── subscription/
+    │   ├── service/
+    │   └── controller/
     └── resources/
         └── application.yaml
 ```
+
+## API Endpoints (scaffolded)
+
+| Controller | Routes |
+|---|---|
+| `AuthController` | `POST /api/auth/signup`, `POST /api/auth/login`, `GET /api/auth/me` |
+| `ProjectController` | `GET /api/project`, `GET /api/project/{id}`, `POST /api/project`, `DELETE /api/project/{id}` |
+| `ProjectMemberController` | `GET /api/projects/{projectId}/members`, `POST /api/projects/{projectId}/members`, `DELETE /api/projects/{projectId}/members/{memberId}` |
+| `FileController` | `GET /api/projects/{projectId}/files`, `GET /api/projects/{projectId}/files/*path*` |
+| `BillingController` | `GET /api/plans`, `GET /api/me/subscription`, `POST /api/stripe/checkout`, `POST /api/stripe/portal` |
+| `UsageController` | `GET /api/usage/today`, `GET /api/usage/limits` |
+
+> Service layer is currently interfaces only — implementations and repositories are not yet wired up.
 
 ## Getting Started
 
@@ -59,7 +79,7 @@ src/
 
 - [x] JPA Entities & Mappings
 - [ ] Repositories
-- [ ] Service Layer
-- [ ] REST Controllers
+- [~] Service Layer — interfaces defined (Auth, Project, ProjectMember, File, Plan, Subscription, Usage, User); implementations pending
+- [~] REST Controllers — endpoints scaffolded (Auth, Project, ProjectMember, File, Billing, Usage)
 - [ ] Authentication
 - [ ] AI Integration
